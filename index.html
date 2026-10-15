@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DZ EMPIRE</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #080d18;
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 30px 15px;
+      background: linear-gradient(135deg, #123d69, #6d28d9);
+    }
+    h1 { font-size: 35px; margin: 10px 0; }
+    header p { color: #e0e7ff; }
+    main { max-width: 600px; margin: auto; padding: 20px; }
+    .card {
+      background: #131c2d;
+      border: 1px solid #293751;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 18px 0;
+      text-align: right;
+    }
+    h2 { color: #60a5fa; }
+    textarea, input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #35445e;
+      border-radius: 10px;
+      background: #080d18;
+      color: white;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 8px;
+      border: 0;
+      border-radius: 10px;
+      background: #3b82f6;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+    }
+    .result {
+      white-space: pre-wrap;
+      line-height: 1.8;
+      color: #a7f3d0;
+      overflow-wrap: anywhere;
+    }
+    footer { padding: 25px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>👑 DZ EMPIRE</h1>
+    <p>إمبراطوريتك الرقمية تبدأ من هنا</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>💡 مولّد الأفكار</h2>
+      <p>اكتب المجال اللي تحب تخدم فيه.</p>
+      <input id="field" placeholder="مثلاً: التجارة، الألعاب، الدراسة">
+      <button onclick="ideas()">اقترحلي أفكار</button>
+      <div id="ideasResult" class="result"></div>
+    </section>
+
+    <section class="card">
+      <h2>✍️ مساعد الكتابة</h2>
+      <textarea id="writing" rows="3" placeholder="اكتب موضوعك هنا"></textarea>
+      <button onclick="writeText()">حضّرلي نص</button>
+      <div id="writingResult" class="result"></div>
+    </section>
+
+    <section class="card">
+      <h2>🎯 مخطّط الأهداف</h2>
+      <input id="goal" placeholder="اكتب هدفك">
+      <button onclick="plan()">أنشئ خطة</button>
+      <div id="planResult" class="result"></div>
+    </section>
+  </main>
+
+  <footer>© 2026 DZ EMPIRE — صُنع بكل طموح 🇩🇿</footer>
+
+  <script>
+    function ideas() {
+      const v = document.getElementById('field').value.trim();
+      if (!v) {
+        document.getElementById('ideasResult').textContent = 'اكتب المجال أولاً.';
+        return;
+      }
+      document.getElementById('ideasResult').textContent =
+        'أفكار في مجال ' + v + ':\n\n' +
+        '1. إنشاء صفحة أو موقع متخصص.\n' +
+        '2. تقديم خدمة رقمية بسيطة.\n' +
+        '3. نشر محتوى مفيد وبناء جمهور.\n' +
+        '4. تطوير أداة صغيرة تحل مشكلة حقيقية.\n\n' +
+        'ابدأ بتجربة مجانية، ثم اختبر هل الناس مستعدة للدفع.';
+    }
+
+    function writeText() {
+      const v = document.getElementById('writing').value.trim();
+      document.getElementById('writingResult').textContent = v
+        ? 'مسودة مقترحة:\n\n' + v + '\n\nاستخدم هذه المسودة كنقطة بداية وعدّلها حسب حاجتك.'
+        : 'اكتب موضوعاً أولاً.';
+    }
+
+    function plan() {
+      const v = document.getElementById('goal').value.trim();
+      document.getElementById('planResult').textContent = v
+        ? 'خطتك لتحقيق: ' + v + '\n\n1. قسّم الهدف إلى خطوات صغيرة.\n2. أنجز خطوة اليوم.\n3. سجّل تقدمك يومياً.\n4. راجع النتيجة كل أسبوع.'
+        : 'اكتب هدفك أولاً.';
+    }
+  </script>
+</body>
+</html>
